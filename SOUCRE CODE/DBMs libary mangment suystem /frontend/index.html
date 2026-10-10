@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Multi-Library Book Tracking & Discovery System</title>
+  <meta name="description" content="Centralized relational database tracking every physical copy with barcodes across multi-branch libraries in Hyderabad.">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Chart.js for Admin Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- HTML5 QR/Barcode Scanner for mobile camera -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#home" class="logo-brand">
+        <div class="logo-badge">
+          <i class="fa-solid fa-book-bookmark"></i>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">Smart Library</span>
+          <span class="logo-subtitle">Tracking & Discovery</span>
+        </div>
+      </a>
+
+      <!-- Dynamic Navigation Links -->
+      <nav>
+        <ul id="nav-links" class="nav-links">
+          <!-- Populated by Auth.renderNav() -->
+        </ul>
+      </nav>
+
+      <!-- Right Header Actions (Theme Toggle, User Profile) -->
+      <div class="header-actions">
+        <button id="theme-toggle-btn" class="btn btn-secondary btn-sm" onclick="App.toggleTheme()" title="Toggle Theme" aria-label="Toggle Dark and Light Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <div id="user-actions" style="display: flex; align-items: center; gap: 0.5rem;">
+          <!-- Populated by Auth.renderNav() -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main id="app-container" class="main-content">
+    <div style="text-align: center; padding: 4rem 1rem;">
+      <div class="logo-badge" style="width: 50px; height: 50px; margin: 0 auto 1rem; font-size: 1.5rem;">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+      </div>
+      <h2 style="font-size: 1.25rem; font-weight: 700;">Connecting to Library Network...</h2>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+      <div>
+        <strong>Smart, Connected Multi-Library Book Tracking & Discovery System</strong>
+        <div style="font-size: 0.75rem; margin-top: 0.2rem;">DBMS Capstone Project | AIML Department</div>
+      </div>
+      <div style="font-size: 0.75rem; color: var(--text-muted);">
+        Team: D. Srinivas (25B11AID13), Ch. Sashank (26B21AI018), T. Praveen (25B11AIC12)
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/auth.js"></script>
+  
+  <!-- Views -->
+  <script src="js/views/home.js"></script>
+  <script src="js/views/authView.js"></script>
+  <script src="js/views/books.js"></script>
+  <script src="js/views/bookDetail.js"></script>
+  <script src="js/views/libraries.js"></script>
+  <script src="js/views/member.js"></script>
+  <script src="js/views/librarian.js"></script>
+  <script src="js/views/admin.js"></script>
+  <script src="js/views/notifications.js"></script>
+
+  <!-- Router & App -->
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

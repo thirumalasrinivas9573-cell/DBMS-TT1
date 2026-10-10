@@ -1,0 +1,464 @@
+/* ==========================================================================
+   Component Specific Styles
+   ========================================================================== */
+
+/* 1. Hero Search Section (Section 8.1, 13) */
+.hero-search-section {
+  text-align: center;
+  padding: 3.5rem 1.5rem 2.5rem;
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-primary) 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-search-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 159, 28, 0.12) 0%, rgba(255, 159, 28, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, var(--amber-500), var(--amber-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto 2rem;
+}
+
+.search-box-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-bar-main {
+  display: flex;
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  padding: 0.4rem 0.5rem 0.4rem 1.25rem;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+}
+
+.search-bar-main:focus-within {
+  border-color: var(--amber-500);
+  box-shadow: var(--shadow-glow-amber);
+}
+
+.search-input-field {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.search-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.filter-pill {
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-pill:hover, .filter-pill.active {
+  background: var(--navy-800);
+  color: #FFFFFF;
+  border-color: var(--navy-800);
+}
+
+[data-theme="dark"] .filter-pill:hover, [data-theme="dark"] .filter-pill.active {
+  background: var(--amber-500);
+  color: #0B132B;
+  border-color: var(--amber-500);
+}
+
+/* 2. Book Cards Grid */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--amber-500);
+}
+
+.book-card-header {
+  padding: 1.25rem 1.25rem 0.5rem;
+}
+
+.book-card-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--amber-600);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.book-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.35rem;
+}
+
+.book-card-author {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.book-card-body {
+  padding: 0 1.25rem 1.25rem;
+  margin-top: auto;
+}
+
+.book-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-light);
+  padding-top: 0.85rem;
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+}
+
+/* 3. Scan Screen Component (Section 9.1, 9.2, 13) */
+.scan-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.scan-box-card {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 2rem;
+}
+
+.scan-step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.scan-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.scan-step.active {
+  color: var(--amber-500);
+}
+
+.scan-step.completed {
+  color: var(--emerald-500);
+}
+
+.scan-step-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-medium);
+  font-size: 0.85rem;
+}
+
+.scan-step.active .scan-step-circle {
+  background-color: var(--amber-500);
+  border-color: var(--amber-500);
+  color: #0B132B;
+}
+
+.scan-step.completed .scan-step-circle {
+  background-color: var(--emerald-500);
+  border-color: var(--emerald-500);
+  color: #FFFFFF;
+}
+
+.giant-barcode-input {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-medium);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.giant-barcode-input:focus {
+  border-color: var(--amber-500);
+  background-color: var(--bg-surface);
+  box-shadow: var(--shadow-glow-amber);
+}
+
+/* Result Banners */
+.alert-banner {
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  animation: slideDown 300ms ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.alert-banner.success {
+  background-color: var(--emerald-100);
+  color: var(--emerald-600);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="dark"] .alert-banner.success {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+}
+
+.alert-banner.danger {
+  background-color: var(--rose-100);
+  color: var(--rose-600);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+[data-theme="dark"] .alert-banner.danger {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+}
+
+.camera-preview-box {
+  width: 100%;
+  max-width: 480px;
+  margin: 1.5rem auto;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px dashed var(--border-medium);
+  background-color: #000;
+  display: none;
+}
+
+/* 4. Movement History Timeline (FR-19, Section 11.5, 13) */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 9px;
+  width: 2px;
+  background-color: var(--border-medium);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2rem;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--bg-surface);
+  border: 4px solid var(--amber-500);
+}
+
+.timeline-dot.ISSUED { border-color: var(--emerald-500); }
+.timeline-dot.RETURNED { border-color: #3B82F6; }
+.timeline-dot.TRANSFERRED { border-color: #8B5CF6; }
+.timeline-dot.PLACED_RACK { border-color: var(--amber-500); }
+.timeline-dot.PLACED_TABLE { border-color: #06B6D4; }
+
+.timeline-content {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.timeline-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+/* 5. Toast Notifications System */
+.toast-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 380px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-xl);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  animation: toastIn 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 200ms ease;
+}
+
+.toast.toast-success {
+  border-left: 4px solid var(--emerald-500);
+}
+.toast.toast-error {
+  border-left: 4px solid var(--rose-500);
+}
+.toast.toast-info {
+  border-left: 4px solid var(--amber-500);
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* 6. Stats Cards Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background-color: var(--bg-secondary);
+  color: var(--amber-500);
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}

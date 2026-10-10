@@ -1,0 +1,154 @@
+erDiagram
+    LIBRARY ||--o{ RACK : "houses"
+    LIBRARY ||--o{ READING_TABLE : "houses"
+    LIBRARY ||--o{ BOOK_COPY : "stocks"
+    LIBRARY ||--o{ USER : "employs (librarians)"
+    LIBRARY ||--o{ BORROW_TRANSACTION : "issues"
+    LIBRARY ||--o{ BORROW_TRANSACTION : "receives"
+    LIBRARY ||--o{ TRANSFER_REQUEST : "source library"
+    LIBRARY ||--o{ TRANSFER_REQUEST : "destination library"
+
+    CATEGORY ||--o{ BOOK : "categorizes"
+    PUBLISHER ||--o{ BOOK : "publishes"
+    AUTHOR ||--o{ BOOK : "authors"
+    BOOK ||--o{ BOOK_COPY : "manifests as"
+    RACK ||--o{ BOOK_COPY : "assigned home rack"
+
+    BOOK_COPY ||--o{ BORROW_TRANSACTION : "borrowed via"
+    BOOK_COPY ||--o{ BOOK_MOVEMENT : "physical logs"
+    BOOK_COPY ||--o{ TRANSFER_REQUEST : "transferred via"
+
+    USER ||--o{ BORROW_TRANSACTION : "borrows"
+    USER ||--o{ BOOK_MOVEMENT : "scanned by"
+    USER ||--o{ TRANSFER_REQUEST : "requested by"
+    USER ||--o{ NOTIFICATION : "receives"
+
+    BORROW_TRANSACTION ||--o{ NOTIFICATION : "references"
+
+    LIBRARY {
+        int library_id PK
+        string library_name
+        string address
+        string phone
+        string email
+        decimal latitude
+        decimal longitude
+    }
+
+    RACK {
+        int rack_id PK
+        int library_id FK
+        string rack_number
+        string category
+    }
+
+    READING_TABLE {
+        int table_id PK
+        int library_id FK
+        string table_number
+        string area_name
+    }
+
+    CATEGORY {
+        int category_id PK
+        string category_name
+    }
+
+    PUBLISHER {
+        int publisher_id PK
+        string publisher_name
+    }
+
+    AUTHOR {
+        int author_id PK
+        string author_name
+    }
+
+    BOOK {
+        int book_id PK
+        int author_id FK
+        string title
+        string isbn
+        int publication_year
+        int category_id FK
+        int publisher_id FK
+    }
+
+    BOOK_COPY {
+        int copy_id PK
+        int book_id FK
+        int library_id FK
+        string barcode UK
+        string status
+        string current_location_type
+        int current_location_id
+        int home_rack_id FK
+    }
+
+    USER {
+        int user_id PK
+        string name
+        string email UK
+        string phone
+        string address
+        string password_hash
+        string role
+        int library_id FK
+    }
+
+    BORROW_TRANSACTION {
+        int transaction_id PK
+        int copy_id FK
+        int user_id FK
+        int issue_library_id FK
+        int return_library_id FK
+        date issue_date
+        date due_date
+        date return_date
+        decimal deposit_amount
+        decimal late_fee
+        decimal transfer_distance_km
+        decimal transfer_charge
+        decimal refund_amount
+        string status
+    }
+
+    BOOK_MOVEMENT {
+        int movement_id PK
+        int copy_id FK
+        string from_location_type
+        int from_location_id
+        string to_location_type
+        int to_location_id
+        int user_id FK
+        datetime scan_time
+        string movement_type
+    }
+
+    TRANSFER_REQUEST {
+        int transfer_id PK
+        int copy_id FK
+        int source_library_id FK
+        int destination_library_id FK
+        int requested_by FK
+        date request_date
+        string status
+    }
+
+    NOTIFICATION {
+        int notification_id PK
+        int user_id FK
+        int transaction_id FK
+        string type
+        text message
+        datetime sent_at
+        string status
+    }
+
+    SETTINGS {
+        int setting_id PK
+        string setting_key UK
+        string setting_value
+        string description
+        datetime updated_at
+    }
